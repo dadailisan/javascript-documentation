@@ -102,6 +102,149 @@
       <h2>Operators</h2>
       <p>An operator is a mathematical symbol which produces a result based on two values (or variables). In the following table you can see some of the simplest operators, along with some examples to try out in the JavaScript console.</p>
 
+      <table class="table table-bordered table-dark">
+        <thead>
+          <th scope="col">Operator</th>
+          <th scope="col">Explanation</th>
+          <th scope="col">Symbol(s)</th>
+          <th scope="col">Example</th>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Addition</th>
+            <td>Used to add two numbers together or glue two strings together.</td>
+            <td><code>+</code></td>
+            <td><code><p>6 + 9;</p>
+                "Hello " + "world!";</code></td>
+          </tr>
+
+          <tr>
+            <th scope="row"><p>Subtraction,</p> <p>Multiplication,</p> Division</th>
+            <td>These do what you'd expect them to do in basic math.</td>
+            <td><code>-</code>, <code>*</code>, <code>/</code></td>
+            <td><code><p>9 - 3;</p>
+                      <p>8 * 2; // multiply in JS is an asterisk</p>
+                      9 / 3;</code></td>
+          </tr>
+
+          <tr>
+            <th scope="row">Equality</th>
+            <td>Does a test to see if two values are equal to one another and returns a <em>true</em> / <em>false</em> (Boolean) result.</td>
+            <td><code>===</code></td>
+            <td><code><p>var myVariable = 3;</p>
+                      myVariable === 4;</code></td>
+          </tr>
+
+          <tr>
+            <th scope="row">Not, Does-not-equal</th>
+            <td>Returns the logically opposite value of what it precedes; it turns a true into a false, etc. When it is used alongside the Equality operator, the negation operator tests whether two values are not equal.</td>
+            <td><code>!</code>,<code> !==</code></td>
+            <td><code><p>var myVariable = 3;</p>
+                      <p>!(myVariable === 3);</p></code>
+                      <p>Here we are testing "<em>is myVariable NOT equal to 3</em>". This returns false because <em>myVariable</em> IS equal to 3.</p></td>
+          </tr>
+
+        </tbody>
+      </table>
+      There are a lot more operators to explore, but this is enough for now.
+      <hr>
+      <h2>Conditionals</h2>
+      <p>Conditionals are code structures which allow you to test if an expression returns true or not, running alternative code revealed by its result. A very common form of conditionals is the <em>if ... else</em> statement. For example:</p>
+      <code>
+        <p>var iceCream = 'chocolate';</p>
+        <p>if (iceCream === 'chocolate') {</p>
+          <p>alert('Yay, I love chocolate ice cream!'); </p>   
+        <p>} else {</p>
+          <p>alert('Awwww, but chocolate is my favorite...');</p>  
+        }
+      </code>
+      <p>The expression inside the if ( ... ) is the test — this uses the identity operator (as described above) to compare the variable iceCream with the string chocolate to see if the two are equal. If this comparison returns true, the first block of code is run. If the comparison is not true, the first block is skipped and the second code block, after the else statement, is run instead.</p>
+      <hr>
+
+      <h2>Functions</h2>
+      <p>Functions are a way of packaging functionality that you wish to reuse. When you need the procedure you can call a function, with the function name, instead of rewriting the entire code each time. You have already seen some uses of functions above, for example:</p>
+      <code><p>var myVariable = document.querySelector('h1');
+          </p>alert('hello!');</code>
+
+      <p>write a simple function which takes two numbers as arguments and multiplies them:</p>
+      <code>
+        <p>function multiply(num1,num2) {</p>
+          <p>var result = num1 * num2;</p>
+          <p>return result;</p>
+        <p>}</p>
+      </code>
+      <hr>
+
+      <h2>Events</h2>
+      <p>Real interactivity on a website needs events. These are code structures which listen for things happening in browser, running code in response. The most obvious example is the click event, which is fired by the browser when you click on something with your mouse. To demonstrate this, enter the following into your console, then click on the current webpage:</p>
+      <code>
+          <p>document.querySelector('html').onclick = function() {</p>
+          <p>alert('Ouch! Stop poking me!');</p>
+      }
+      </code>
+      <p>There are many ways to attach an event to an element. Here we select the <code>&lt;html&gt;</code> element, setting its onclick handler property equal to an anonymous (i.e. nameless) function, which contains the code we want the click event to run.</p>
+
+      <code>document.querySelector('html').onclick = function() {};</code>
+      <p>is equivalent to</p>
+      <code>var myHTML = document.querySelector('html');</code>
+      <code>myHTML.onclick = function() {};</code>
+      <hr>
+
+      <h2>Adding an image changer</h2>
+      <p>In this section, we'll add an additional image to our site using some more DOM API features, using some JavaScript to switch between the two when the image is clicked.</p>
+        <div class="container">
+          <ol>
+            <li>First of all, find another image you'd like to feature on your site. Be sure it is the same size as the first image, or as close as possible.</li>
+            <li>Save this image in your <em>images</em> folder.</li>
+            <li>Rename this image 'firefox2.png' (without quotes).</li>
+            <li>Go to your main.js file, and enter the following JavaScript. (If your "hello world" JavaScript is still there, delete it.)
+            <div>  
+            <code>
+            <p>var myImage = document.querySelector('img');</p>
+
+            <p>myImage.onclick = function() {</p>
+                <p>var mySrc = myImage.getAttribute('src');</p>
+                <p>if(mySrc === 'images/firefox-icon.png') {</p>
+                  <p>myImage.setAttribute ('src','images/firefox2.png');</p>
+                <p>} else {</p>
+                  <p>myImage.setAttribute ('src','images/firefox-icon.png');</p>
+                <p>}</p>
+            <p>}</p>
+            </code>
+            </div>
+            </li>
+            <li>Save all files and load index.html in the browser. Now when you click the image, it should change to the other one!</li>
+          </ol>
+
+          <p>You store a reference to your <code>&lt;img&gt;</code> element in the <em>myImage</em> variable. Next, you make this variable's <em>onclick</em> event handler property equal to a function with no name (an "anonymous" function). Now, every time this element is clicked:</p>
+          <div class="container">
+            <ol>
+              <li>You retrieve the value of the image's <em>src</em> attribute.</li>
+              <li>You use a conditional to check whether the <em>src</em> value is equal to the path to the original image:</li>
+                <ol>
+                  <li>If it is, you change the <em>src</em> value to the path to the 2nd image, forcing the other image to be loaded inside the <code>&lt;img&gt;</code> element.</li>
+                  <li>If it isn't (meaning it must already have changed), the <em>src</em> value swaps back to the original image path, to the original state.</li>
+                </ol>
+            </ol>
+          </div>
+        </div>
+        <hr>
+
+        <h2>Adding a personalized welcome message</h2>
+        <p>Next we will add another bit of code, changing the page's title to a personalized welcome message when the user first navigates to the site. This welcome message will persist, should the user leave the site and later return — we will save it using the Web Storage API. We will also include an option to change the user and, therefore, the welcome message anytime it is required.</p>
+          <div class="container">
+            <ol>
+              <li>In index.html, add the following line just before the <code>&lt;script&gt;</code> element:
+                <p><code>&lt;button&gt;Change user&lt;/button&gt;</code></p>
+              </li>
+              <li>In <em>main.js</em>, place the following code at the bottom of the file, exactly as written — this takes references to the new button and the heading, storing them inside variables:
+                <p><code>var myButton = document.querySelector('button');</code></p>
+                <p><code>var myHeading = document.querySelector('h1');</code></p>
+              </li>
+            </ol>
+          </div>
+        
+
     </div><!--end div-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
