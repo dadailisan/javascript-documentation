@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Learning JavaScript</title>
+  </head>
+  <body>
+    <div class="container my-4"><!--start div-->
+      <h2>JavaScript</h2>
+      <p>JavaScript is a programming language that adds interactivity to your website (for example: games, responses when buttons are pressed or data entered in forms, dynamic styling, animation).</p>
+
+      <h2>What is JavaScript really?</h2>
+      <p>JavaScript ("JS" for short) is a full-fledged dynamic programming language that, when applied to an HTML document, can provide dynamic interactivity on websites. It was invented by Brendan Eich, co-founder of the Mozilla project, the Mozilla Foundation, and the Mozilla Corporation.</p>
+      <p>JavaScript itself is fairly compact yet very flexible. Developers have written a large variety of tools on top of the core JavaScript language, unlocking a vast amount of extra functionality with minimum effort. These include:</p>
+      <ul>
+        <li><strong>Browser Application Programming Interfaces (APIs)</strong> — APIs built into web browsers, providing functionality like dynamically creating HTML and setting CSS styles, collecting and manipulating a video stream from the user's webcam, or generating 3D graphics and audio samples.</li>
+        <li>Third-party APIs to allow developers to incorporate functionality in their sites from other content providers, such as Twitter or Facebook.</li>
+        <li>Third-party frameworks and libraries you can apply to your HTML to allow you to rapidly build up sites and applications.</li>
+      </ul>
+
+      <h2>A "hello world" example</h2>
+      <p>The above section might sound really exciting, and so it should — JavaScript is one of the most lively web technologies, and as you start to get good at using it, your websites will enter a new dimension of power and creativity.</p>
+      <p>However, becoming comfortable with JavaScript is a little harder than becoming comfortable with HTML and CSS. You may have to start small and keep working in small consistent steps. To start, we'll show how to add some basic JavaScript to your page, creating a "hello world!" example.</p>
+      <hr>
+
+      <h2>Language basics crash course</h2>
+      <p>Let's explain some of the core features of the JavaScript language, to give you a better understanding of how it all works. It is worth noting that these features are common to all programming languages, so if you master these fundamentals, you're well on your way to being able to program just about anything!</p>
+      <hr>
+
+      <h3>Variables</h3>
+      <p>Variables are containers that you can store values in. You start by declaring a variable with the var keyword, followed by any name you want to call it:</p>
+      <code>var myVariable;</code>
+      <p>Note: A semicolon at the end of a line indicates where a statement ends; it is only absolutely required when you need to separate statements on a single line. However, some people believe that it is a good practice to put them in at the end of each statement.</p>
+      <p>Note: You can name a variable nearly anything, but there are some name restrictions</p>
+      <p>Note: JavaScript is case sensitive — <em>myVariable</em> is a different variable to <em>myvariable</em>. If you are getting problems in your code, check the casing!</p>
+      <p>After declaring a variable, you can give it a value:
+      <code>myVariable = 'Bob';</code></p>
+      <p>You can do both these operations on the same line if you wish:
+      <code>var myVariable = 'Bob';</code></p>
+      <p>You can retrieve the value by just calling the variable by name:
+      <code>myVariable;</code></p>
+      <p>After giving a variable a value, you can later choose to change it:
+      <code>myVariable = 'Steve';</code></p>
+
+      <p>Note that variables may hold values that have different data types:</p>
+      <table class="table table-bordered">
+        <thead class="table-active">
+          <th scope="col">Variable</th>
+          <th scope="col">Explanation</th>
+          <th scope="col">Example</th>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">String</th>
+            <td>A sequence of text known as a string. To signify that the value is a string, you must enclose it in quote marks.</td>
+            <td><code>var myVariable = 'Bob';</code></td>
+          </tr>
+
+          <tr>
+            <th scope="row">Number</th>
+            <td>A number. Numbers don't have quotes around them.</td>
+            <td><code>var myVariable = 10;</code></td>
+          </tr>
+
+          <tr>
+            <th scope="row">Boolean</th>
+            <td>A True/False value. The words true and false are special keywords in JS, and don't need quotes.</td>
+            <td><code>var myVariable = true;</code></td>
+          </tr>
+
+          <tr>
+            <th scope="row">Array</th>
+            <td>A structure that allows you to store multiple values in one single reference.</td>
+            <td><code>var myVariable = [1,'Bob','Steve',10];</code><p>Refer to each member of the array like this:</p><code>myVariable[0], myVariable[1], </code> etc.</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Object</th>
+            <td>Basically, anything. Everything in JavaScript is an object, and can be stored in a variable. Keep this in mind as you learn.</td>
+            <td><code>var myVariable = document.querySelector('h1');
+            </code>All of the above examples too.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>So why do we need variables? Well, variables are needed to do anything interesting in programming. If values couldn't change, then you couldn't do anything dynamic, like personalize a greeting message or change the image displayed in an image gallery.</p>
+      <hr>
+
+      <h2>Comments</h2>
+      You can put comments into JavaScript code, just as you can in CSS:
+      <p><code>/*</p>
+      <p>Everything in between is a comment.</p>
+      <p>*/</code></p>
+      If your comment contains no line breaks, it's often easier to put it behind two slashes like this: <code>// This is a comment</code>
+      <hr>
+
+      <h2>Operators</h2>
+      <p>An operator is a mathematical symbol which produces a result based on two values (or variables). In the following table you can see some of the simplest operators, along with some examples to try out in the JavaScript console.</p>
+
+    </div><!--end div-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
