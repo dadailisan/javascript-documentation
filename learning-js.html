@@ -241,8 +241,31 @@
                 <p><code>var myButton = document.querySelector('button');</code></p>
                 <p><code>var myHeading = document.querySelector('h1');</code></p>
               </li>
+              <li>Now add the following function to set the personalized greeting — this won't do anything yet, but we'll fix this in a moment:
+                <p><code>function setUserName() {</p>
+                  <p>var myName = prompt('Please enter your name.');</p>
+                  <p>localStorage.setItem('name', myName);</p>
+                  <p>myHeading.textContent = 'Mozilla is cool, ' + myName;</p>
+                <p>}</p></code>
+                <p>This function contains a prompt() function, which brings up a dialog box, a bit like alert(). This prompt(), however, asks the user to enter some data, storing it in a variable after the user presses OK. In this case, we are asking the user to enter their name. Next, we call on an API called localStorage, which allows us to store data in the browser and later retrieve it. We use localStorage's setItem() function to create and store a data item called 'name', setting its value to the myName variable which contains the data the user entered. Finally, we set the textContent of the heading to a string, plus the user's newly stored name.</p>
+              </li>
+              <li>Next, add this <em>if ... else</em> block — we could call this the initialization code, as it structures the app when it first loads:
+                <p><code>if(!localStorage.getItem('name')) {</p>
+                  <p>setUserName();</p>
+                  <p>} else {</p>
+                    <p>var storedName = localStorage.getItem('name');</p>
+                    <p>myHeading.textContent = 'Mozilla is cool, ' + storedName;</p>
+                  <p>}</p></code>
+                  <p>This block first uses the negation operator (logical NOT, represented by the !) to check whether the name data exists. If not, the setUserName() function is run to create it. If it exists (that is, the user set it during a previous visit), we retrieve the stored name using getItem() and set the textContent of the heading to a string, plus the user's name, as we did inside setUserName().</p>
+              </li>
+              <li>Finally, put the below onclick event handler on the button. When clicked, the setUserName() function is run. This allows the user to set a new name, when they wish, by pressing the button:
+                <p><code>myButton.onclick = function() {</p>
+                          <p>setUserName();</p>
+                        <p>}</p></code>
+              </li>
             </ol>
           </div>
+          <p>Now when you first visit the site, it will ask you for your username, then give you a personalized message. You can change the name any time you like by pressing the button. As an added bonus, because the name is stored inside localStorage, it persists after the site is closed down, keeping the personalized message there when you next open the site!</p>
         
 
     </div><!--end div-->
