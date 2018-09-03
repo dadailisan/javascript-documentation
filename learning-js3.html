@@ -11,7 +11,103 @@
     <title>A First Splash</title>
   </head>
   <body>
-    
+    <p>Now you've learned something about the theory of JavaScript, and what you can do with it, we are going to give you a crash course in the basic features of JavaScript via a completely practical tutorial. Here you'll build up a simple "Guess the number" game, step by step.</p>
+
+    <p>You won't be expected to understand all of the code in detail immediately — we just want to introduce you to the high level concepts for now, and give you an idea of how JavaScript (and other programming languages) work. In subsequent articles you'll revisit all these features in a lot more detail!</p>
+
+    <h2>Thinking like a programmer</h2>
+    <p>One of the hardest things to learn in programming is not the syntax you need to learn, but how to apply it to solve real world problems. You need to start thinking like a programmer — this generally involves looking at descriptions of what your program needs to do,  working out what code features are needed to achieve those things, and how to make them work together.</p>
+
+    <p>This requires a mixture of hard work, experience with the programming syntax, and practice — plus a bit of creativity. The more you code, the better you'll get at it. We can't promise that you'll develop "programmer brain" in five minutes, but we will give you plenty of opportunity to practice thinking like a programmer throughout the course.</p>
+
+    <p>With that in mind, let's look at the example we'll be building up in this article, and review the general process of dissecting it into tangible tasks.</p>
+    <hr>
+
+    <h2>Example — Guess the number game</h2>
+    <p>Let's imagine your boss has given you the following brief for creating this game:</p>
+    <p>I want you to create a simple guess the number type game. It should choose a random number between 1 and 100, then challenge the player to guess the number in 10 turns. After each turn the player should be told if they are right or wrong — and, if they are wrong, whether the guess was too low or too high. It should also tell the player what numbers they previously guessed. The game will end once the player guesses correctly, or once they run out of turns. When the game ends, the player should be given an option to start playing again.</p>
+    <hr>
+    <p>Upon looking at this brief, the first thing we can do is to start breaking it down into simple actionable tasks, in as much of a programmer mindset as possible:</p>
+    <ol>
+      <li>Generate a random number between 1 and 100.</li>
+      <li>Record the turn number the player is on. Start it on 1.</li>
+      <li>Provide the player with a way to guess what the number is.</li>
+      <li>Once a guess has been submitted first record it somewhere so the user can see their previous guesses.</li>
+      <li>Next, check whether it is the correct number.</li>
+      <li>If it is correct:
+          <ol>
+            <li>Display congratulations message.</li>
+            <li>Stop the player from being able to enter more guesses (this would mess the game up).</li>
+            <li>Display control allowing the player to restart the game.</li>
+          </ol>
+      </li>
+      <li>If it is wrong and the player has turns left:</li>
+      <li>
+        <ol>
+          <li>Tell the player they are wrong.</li>
+          <li>Allow them to enter another guess.</li>
+          <li>Increment the turn number by 1.</li>
+        </ol>
+      </li>
+      <li>If it is wrong and the player has no turns left:
+        <ol>
+          <li>Tell the player it is game over.</li>
+          <li>Stop the player from being able to enter more guesses (this would mess the game up).</li>
+          <li>Display control allowing the player to restart the game.</li>
+        </ol>
+      </li>
+      <li>Once the game restarts, make sure the game logic and UI are completely reset, then go back to step 1.</li>
+    </ol>
+    <p>Let's now move forward, looking at how we can turn these steps into code, building up the example, and exploring JavaScript features as we go.</p>
+    <hr>
+
+    <h2>Initial setup</h2>
+    <p>To begin this tutorial, we'd like you to make a local copy of the number-guessing-game-start.html file (see it live here). Open it in both your text editor and your web browser. At the moment you'll see a simple heading, paragraph of instructions and form for entering a guess, but the form won't currently do anything.</p>
+
+    <p>The place where we'll be adding all our code is inside the &lt;script&gt; element at the bottom of the HTML:</p>
+    <div class="container">
+      <code>
+        <p>&lt;script&gt;</p>
+
+        <p>// Your JavaScript goes here</p>
+
+        <p>&lt;/script&gt;</p>
+      </code>
+    </div>
+    <hr>
+    <h2>Adding variables to store our data</h2>
+    <p>Let's get started. First of all, add the following lines inside your &lt;script&gt; element:</p>
+    <ul>
+      <li>var randomNumber = Math.floor(Math.random() * 100) + 1;</li>
+
+      <li>var guesses = document.querySelector('.guesses');</li>
+      <li>var lastResult = document.querySelector('.lastResult');</li>
+      <li>var lowOrHi = document.querySelector('.lowOrHi');</li>
+
+      <li>var guessSubmit = document.querySelector('.guessSubmit');</li>
+      <li>var guessField = document.querySelector('.guessField');</li>
+
+      <li>var guessCount = 1;</li>
+      <li>var resetButton;</li>
+    </ul>
+    <p>This section of the code sets up the variables we need to store the data our program will use. Variables are basically containers for values (such as numbers, or strings of text). You create a variable with the keyword var followed by a name for your variable. You can then assign a value to your variable with an equals sign (=) followed by the value you want to give it.</p>
+    <p>In our example:</p>
+    <ul>
+      <li>The first variable — randomNumber — is assigned a random number between 1 and 100, calculated using a mathematical algorithm.</li>
+      <li>The next three variables are each made to store a reference to the results paragraphs in our HTML, and are used to insert values into the paragraphs later on in the code:</li>
+        <ol>
+          <li><code>&lt;p class="guesses"&gt;&lt;/p&gt;</code></li>
+          <li><code>&lt;p class="lastResult"&gt;&lt;/p&gt;</code></li>
+          <li><code>&lt;p class="lowOrHi"&gt;&lt;/p&gt;</code></li>
+        </ol>
+      <li>The next two variables store references to the form text input and submit button and are used to control submitting the guess later on.
+        <ol>
+          <li><code>&lt;label for="guessField">Enter a guess: &lt;/label&gt;&lt;input type="text" id="guessField" class="guessField"&gt;</code></li>
+          <li><code>&lt;input type="submit" value="Submit guess" class="guessSubmit"&gt;</code></li>
+        </ol>
+      </li>
+      <li>Our final two variables store a guess count of 1 (used to keep track of how many guesses the player has had), and a reference to a reset button that doesn't exist yet (but will later).</li>
+    </ul>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
