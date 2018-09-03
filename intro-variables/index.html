@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Variables</title>
+  </head>
+  <body>
+    <br>
+    <button>Press Me!</button>
+    <hr>
+
+    <h2>Declaring a variable</h2>
+    <p>To use a variable you've first got to create it — more accurately, we call this declaring the variable. To do this, we type the keyword var followed by the name you want to call your variable:</p>
+    <ol>
+      <code>
+        <li>var myName;</li>
+        <li>var myAge;</li>
+      </code>
+    </ol>
+    <p>Here we're creating two variables called myName and myAge. Try typing these lines in now in your web browser's console, or in the below console (You can open this console in a separate tab or window if you'd prefer that). After that, try creating a variable (or two) with your own name choices.</p>
+
+    <p class="small">Note: In JavaScript, all code instructions should end with a semi-colon (;) — your code may work correctly for single lines, but probably won't when you are writing multiple lines of code together. Try to get into the habit of including it.</p>
+
+    <p>You can test whether these values now exist in the execution environment by typing just the variable's name, e.g.</p>
+    <ol>
+      <code>
+        <li>myName;</li>
+        <li>myAge;</li>
+      </code>
+    </ol>
+
+    <p>They currently have no value; they are empty containers. When you enter the variable names, you should get a value of undefined returned. If they don't exist, you'll get an error message — try typing in</p>
+    <ol>
+      <code>
+        <li>scoobyDoo;</li>
+      </code>
+    </ol>
+    <p class="small">Note: Don't confuse a variable that exists but has no value defined with a variable that doesn't exist at all — they are very different things. In the box analogy you saw above, not existing would mean there's no box (variable) for a value to go in. No value defined would mean that there IS a box, but it has no value inside it.</p>
+    <hr>
+
+    <h2>Initializing a variable</h2>
+    <p>Once you've declared a variable, you can initialize it with a value. You do this by typing the variable name, followed by an equals sign (=), followed by the value you want to give it. For example:</p>
+    <ol>
+      <code>
+        <li>myName = 'Chris';</li>
+        <li>myAge = 37;</li>
+      </code>
+    </ol>
+    <p>Try going back to the console now and typing in these lines. You should see the value you've assigned to the variable returned in the console to confirm it, in each case. Again, you can return your variable values by simply typing their name into the console — try these again:</p>
+    <ol>
+      <code>
+        <li>myName;</li>
+        <li>myAge;</li>
+      </code>
+    </ol>
+    <p>You can declare and initialize a variable at the same time, like this:</p>
+    <ol>
+      <code>
+        <li>var myName = 'Chris';</li>
+      </code>
+    </ol>
+    <p>This is probably what you'll do most of the time, as it is quicker than doing the two actions on two separate lines.</p>
+    <p class="small">Note: If you write a multiline JavaScript program that declares and initializes a variable, you can actually declare it after you initialize it and it will still work. This is because variable declarations are generally done first before the rest of the code is executed. This is called hoisting — read var hoisting for more detail on the subject.</p>
+    <hr>
+
+    <h2>Updating a variable</h2>
+    <p>Once a variable has been initialized with a value, you can change (or update) that value by simply giving it a different value. Try entering the following lines into your console:</p>
+    <ol>
+      <code>
+        <li>myName = 'Bob';</li>
+        <li>myAge = 40;</li>
+      </code>
+    </ol>
+
+    <h2>An aside on variable naming rules</h2>
+    <p>You can call a variable pretty much anything you like, but there are limitations. Generally, you should stick to just using Latin characters (0-9, a-z, A-Z) and the underscore character.</p>
+    <ul>
+      <li>You shouldn't use other characters because they may cause errors or be hard to understand for an international audience.</li>
+      <li>Don't use underscores at the start of variable names — this is used in certain JavaScript constructs to mean specific things, so may get confusing.</li>
+      <li>Don't use numbers at the start of variables. This isn't allowed and will cause an error.</li>
+      <li>A safe convention to stick to is so-called "lower camel case", where you stick together multiple words, using lower case for the whole first word and then capitalize subsequent words. We've been using this for our variable names in the article so far.</li>
+      <li>Make variable names intuitive, so they describe the data they contain. Don't just use single letters/numbers, or big long phrases.</li>
+      <li>Variables are case sensitive — so myage is a different variable to myAge.</li>
+      <li>One last point — you also need to avoid using JavaScript reserved words as your variable names — by this, we mean the words that make up the actual syntax of JavaScript! So you can't use words like var, function, let, and for as variable names. Browsers will recognize them as different code items, and so you'll get errors.
+      </li>
+    </ul>
+    <h2>Variable types</h2>
+    <p>There are a few different types of data we can store in variables. In this section we'll describe these in brief, then in future articles, you'll learn about them in more detail.</p>
+    <p>So far we've looked at the first two, but there are others.</p>
+    <h2>Numbers</h2>
+    <p>You can store numbers in variables, either whole numbers like 30 (also called integers) or decimal numbers like 2.456 (also called floats or floating point numbers). You don't need to declare variable types in JavaScript, unlike some other programming languages. When you give a variable a number value, you don't include quotes:</p>
+    <code>var myAge = 17;</code>
+    <h2>Strings</h2>
+    <p>Strings are pieces of text. When you give a variable a string value, you need to wrap it in single or double quote marks, otherwise, JavaScript will try to interpret it as another variable name.</p>
+    <code>var dolphinGoodbye = 'So long and thanks for all the fish';</code>
+    <h2>Booleans</h2>
+    <p>Booleans are true/false values — they can have two values, true or false. These are generally used to test a condition, after which code is run as appropriate. So for example, a simple case would be:</p>
+    <code>var iAmAlive = true;</code>
+    <p>Whereas in reality it would be used more like this:</p>
+    <code>var test = 6 < 3;</code>
+    <p>This is using the "less than" operator (<) to test whether 6 is less than 3. As you might expect, it will return false, because 6 is not less than 3! You will learn a lot more about such operators later on in the course.</p>
+    <h2>Arrays</h2>
+    <p>An array is a single object that contains multiple values enclosed in square brackets and separated by commas. Try entering the following lines into your console:</p>
+    <ol>
+      <code>
+        <li>var myNameArray = ['Chris', 'Bob', 'Jim'];</li>
+        <li>var myNumberArray = [10,15,40];</li>
+      </code>
+    </ol>
+    <p>Once these arrays are defined, you can access each value by their location within the array. Try these lines:</p>
+    <ol>
+      <code>
+        <li>myNameArray[0]; // should return 'Chris'</li>
+        <li>myNumberArray[2]; // should return 40</li>
+      </code>
+    </ol>
+    <p>The square brackets specify an index value corresponding to the position of the value you want returned. You might have noticed that arrays in JavaScript are zero-indexed: the first element is at index 0.</p>
+
+    <h2>Objects</h2>
+    <p>In programming, an object is a structure of the code that models a real-life object. You can have a simple object that represents a car park and contains information about its width and length, or you could have an object that represents a person, and contains data about their name, height, weight, what language they speak, how to say hello to them, and more.</p>
+    <p>Try entering the following line into your console:</p>
+    <code>var dog = { name : 'Spot', breed : 'Dalmatian' };</code>
+    <p>To retrieve the information stored in the object, you can use the following syntax:</p>
+    <code>dog.name</code>
+    <hr>
+
+    <h2>Dynamic typing</h2>
+<p>JavaScript is a "dynamically typed language", which means that, unlike some other languages, you don't need to specify what data type a variable will contain (e.g. numbers, strings, arrays, etc).</p>
+
+<p>For example, if you declare a variable and give it a value encapsulated in quotes, the browser will treat the variable as a string:</p>
+<code>var myString = 'Hello';</code>
+<p>It will still be a string, even if it contains numbers, so be careful:</p>
+<ol>
+    <code>
+      <li>var myNumber = '500'; // oops, this is still a string</li>
+      <li>typeof myNumber;</li>
+      <li>myNumber = 500; // much better — now this is a number</li>
+      <li>typeof myNumber;</li>
+    </code>
+  </ol>
+  <p>Try entering the four lines above into your console one by one, and see what the results are. You'll notice that we are using a special operator called typeof — this returns the data type of the variable you pass into it. The first time it is called, it should return string, as at that point the myNumber variable contains a string, '500'. Have a look and see what it returns the second time you call it.</p>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
