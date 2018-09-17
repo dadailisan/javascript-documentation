@@ -63,4 +63,13 @@ var person3 = new Object({
 //using create() method, creating new object based on the existing object
 var person2 = Object.create(person1);
 person2.name //will have same value as person1 unless you change it
-person2.greeting() //will have same value as person1 unless you change it
+// person2.greeting() //will have same value as person1 unless you change it
+
+//constructor property, creating new object
+var person3 = new person1.constructor('Karen', 'Stephenson', 26, 'female', ['playing drums', 'mountain climbing']);
+
+Person.prototype.farewell = function() {
+  alert(this.name.first + ' has left the building. Bye for now!');
+};
+
+
