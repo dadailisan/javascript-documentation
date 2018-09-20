@@ -190,8 +190,8 @@ function loop() {
       size
     );
     balls.push(ball);
-    // count++;
-    // para.textContent = 'Ball count: ' + count;
+    count++;
+    para.textContent = 'Ball count: ' + count;
   }
 
   for (var i = 0; i < balls.length; i++) {
